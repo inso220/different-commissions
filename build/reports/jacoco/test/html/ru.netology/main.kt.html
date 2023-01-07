@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>main.kt</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">different-commissions</a> &gt; <a href="index.source.html" class="el_package">ru.netology</a> &gt; <span class="el_source">main.kt</span></div><h1>main.kt</h1><pre class="source lang-java linenums">package ru.netology
+
+fun main () {
+<span class="nc" id="L4">    val fee = calculateFee(&quot;Mastercard&quot;, 0.00, 41000.00)</span>
+<span class="nc" id="L5">    println(fee)</span>
+<span class="nc" id="L6">}</span>
+
+fun calculateFee (card: String, monthTotal: Double, amount: Double): Any {
+<span class="pc bpc" id="L9" title="6 of 13 branches missed.">    var result = when (card) {</span>
+<span class="fc bfc" id="L10" title="All 4 branches covered.">        &quot;Mastercard&quot;, &quot;Maestro&quot; -&gt; if (monthTotal &gt; 300 &amp;&amp; monthTotal &lt; 75000) 0.0 else amount * 0.006 + 20</span>
+<span class="fc bfc" id="L11" title="All 2 branches covered.">        &quot;Visa&quot;, &quot;РњРёСЂ&quot; -&gt; if (amount * 0.0075 &lt; 35) 35.0 else amount * 0.0075</span>
+<span class="fc" id="L12">        else -&gt; 0.0</span>
+    }
+<span class="fc bfc" id="L14" title="All 4 branches covered.">    return if (amount &gt; 150000 || monthTotal &gt; 600000)</span>
+<span class="fc" id="L15">        &quot;Р›РёРјРёС‚ РїСЂРµРІС‹С€РµРЅ&quot;</span>
+<span class="fc bfc" id="L16" title="All 8 branches covered.">    else if (card == &quot;VK Pay&quot; &amp;&amp; amount &gt; 15000 || card == &quot;VK Pay&quot; &amp;&amp; monthTotal &gt; 40000)</span>
+<span class="fc" id="L17">        &quot;Р›РёРјРёС‚ РїСЂРµРІС‹С€РµРЅ&quot;</span>
+    else
+<span class="fc" id="L19">        result</span>
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

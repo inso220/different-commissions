@@ -1,7 +1,7 @@
 package ru.netology
 
 fun main () {
-    val fee = calculateFee("Visa", 0.00, 41000.00)
+    val fee = calculateFee("Mastercard", 0.00, 41000.00)
     println(fee)
 }
 
